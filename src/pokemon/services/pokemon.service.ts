@@ -42,4 +42,8 @@ export class PokemonService {
     return await this.pokemonModel.findByIdAndDelete(id);
     // return await this.pokemonModel.deleteOne({ _id });
   }
+
+  async insertData(data: any[]): Promise<void> {
+    await this.pokemonModel.insertMany(data);
+  }
 }
