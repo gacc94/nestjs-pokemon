@@ -4,15 +4,20 @@ import { UpdatePokemonDto } from '../dto/update-pokemon.dto';
 import { Model } from 'mongoose';
 import { Pokemon } from '../entities/pokemon.entity';
 import { InjectModel } from '@nestjs/mongoose';
-import { log } from 'console';
 import { PaginationDto } from 'src/common/dtos/pagination.dto';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class PokemonService {
 
+  private defaultLimit: number;
+
   constructor(
-    @InjectModel(Pokemon.name) private readonly pokemonModel: Model<Pokemon>
-  ) { }
+    @InjectModel(Pokemon.name) private readonly pokemonModel: Model<Pokemon>,
+    private readonly configService: ConfigService,
+  ) {
+    this.defaultLimit = this.configService.get<number>('DEFAULT_LIMIT');
+  }
 
   async create(createPokemonDto: CreatePokemonDto) {
     try {
