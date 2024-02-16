@@ -9,6 +9,10 @@ async function bootstrap() {
     new ValidationPipe({
       whitelist: true,
       forbidNonWhitelisted: true,
+      transform: true, //TODO transforma la data
+      transformOptions: {
+        enableImplicitConversion: true, //TODO opcion para la transforamcion
+      },
     }),
   )
   await app.listen(3000);
