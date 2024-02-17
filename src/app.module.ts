@@ -15,7 +15,7 @@ import { JoiValidationSchema } from './config/joi.validation';
       load: [EnvConfig],
       validationSchema: JoiValidationSchema,
     }),
-    MongooseModule.forRoot('mongodb+srv://gacc94:gacc94@cluster-gaccdev.fgc9tja.mongodb.net/', {
+    MongooseModule.forRoot(process.env.MONGODB_URL, {
       dbName: 'pokemonDb',
     }),
     ServeStaticModule.forRoot({
