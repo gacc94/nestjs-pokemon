@@ -42,7 +42,7 @@ $ pnpm run start
 $ pnpm run start:dev
 
 # production mode
-$ pnpm run start:prod
+$ pnpm run start:prod 
 ```
 
 ## Test
@@ -72,7 +72,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 
 Nest is [MIT licensed](LICENSE).
 
-## Instalaciones del proyecto
-```bash
-$ pnpm add joi
-```
+## Installation
+~~~
+pnpm add joi
+~~~
